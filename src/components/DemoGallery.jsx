@@ -23,19 +23,6 @@ function CondorCurve() {
   )
 }
 
-const WHEEL_ROWS = [
-  { strike: 'SOFI 18P', bid: '0.42', yld: '128.4%', grade: 'A', gc: 'grade-a' },
-  { strike: 'SOFI 17.5P', bid: '0.31', yld: '96.2%', grade: 'A', gc: 'grade-a' },
-  { strike: 'SOFI 17P', bid: '0.22', yld: '71.8%', grade: 'B', gc: 'grade-b' },
-  { strike: 'SOFI 16P', bid: '0.12', yld: '41.5%', grade: 'B', gc: 'grade-b' },
-]
-
-const POSITIONS = [
-  { name: 'SPX 7740P/7745P // 7785C/7790C', sub: '0DTE Iron Condor · Schwab', pnl: '+$312', pos: true },
-  { name: 'SOFI 18P CSP', sub: 'Sep 11 · WeBull', pnl: '+$86', pos: true },
-  { name: 'SPX 7690P/7695P // 7740C/7745C', sub: '1DTE Iron Condor · Schwab', pnl: '-$41', pos: false },
-]
-
 export default function DemoGallery() {
   return (
     <section id="demo">
@@ -44,7 +31,7 @@ export default function DemoGallery() {
           <span className="eyebrow">Product Tour</span>
           <h2 className="section-title">See the desk in action</h2>
           <p className="section-sub">
-            Four views traders live in every day — strategy, income, positions, and the news that
+            Four views traders live in every day — strategy, income, signals, and the news that
             moves them.
           </p>
         </div>
@@ -64,49 +51,26 @@ export default function DemoGallery() {
 
           <div className="demo-card reveal">
             <div className="demo-head">
-              <span className="tag tag-blue">Wheel Scanner</span>
-              <h3>CSPs ranked by annualized yield</h3>
-              <p>Cash-secured puts and covered calls ranked by real, bid-based premiums — zero-bid phantom strikes filtered out.</p>
+              <span className="tag tag-blue">Wheel Tracker</span>
+              <h3>Every wheel position, tracked</h3>
+              <p>Cost basis, premium collected, and assignment odds on every cash-secured put and covered call — mirrored read-only from WeBull.</p>
             </div>
             <div className="demo-body">
-              <div className="demo-shot" style={{ padding: '8px 12px' }}>
-                <table className="mock-table">
-                  <thead>
-                    <tr><th>Strike</th><th>Bid</th><th>Ann. Yield</th><th>Grade</th></tr>
-                  </thead>
-                  <tbody>
-                    {WHEEL_ROWS.map((r) => (
-                      <tr key={r.strike}>
-                        <td>{r.strike}</td>
-                        <td>{r.bid}</td>
-                        <td style={{ color: '#22c55e', fontWeight: 600 }}>{r.yld}</td>
-                        <td><span className={`grade ${r.gc}`}>{r.grade}</span></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <p className="mock-note">// premiums = live bid · zero-bid strikes excluded</p>
+              <div className="demo-shot">
+                <img src="/images/wheel-tracker.webp" alt="Wheel tracker showing a SOFI cash-secured put position" loading="lazy" />
               </div>
             </div>
           </div>
 
           <div className="demo-card reveal">
             <div className="demo-head">
-              <span className="tag tag-amber">Position Tracker</span>
-              <h3>Every position, one screen</h3>
-              <p>Live SPX/SPXW positions from Schwab and WeBull with real-time P&amp;L monitoring.</p>
+              <span className="tag tag-amber">Market Signals</span>
+              <h3>A checklist before every trade</h3>
+              <p>VIX, trend, IV, and macro signals scored in real time — with a trade-entry checklist that tells you when to wait or size down.</p>
             </div>
             <div className="demo-body">
-              <div className="demo-shot" style={{ padding: '6px 16px' }}>
-                {POSITIONS.map((p) => (
-                  <div className="pos-row" key={p.name}>
-                    <div>
-                      <span className="pos-name">{p.name}</span>
-                      <span className="pos-sub">{p.sub}</span>
-                    </div>
-                    <span className={`pnl ${p.pos ? 'pnl-pos' : 'pnl-neg'}`}>{p.pnl}</span>
-                  </div>
-                ))}
+              <div className="demo-shot">
+                <img src="/images/signals.webp" alt="Market signals panel with trade entry checklist" loading="lazy" />
               </div>
             </div>
           </div>
