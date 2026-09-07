@@ -17,8 +17,9 @@ export default function Hero({ onJoinWaitlist }) {
             Trade SPX Iron Condors <span className="grad">with Precision</span>
           </h1>
           <p className="hero-sub">
-            Real-time P&amp;L curves, chaos-scored news, and an AI-friendly API — all in one
-            dashboard.
+            Purpose-built for SPX iron condors — plus short straddles, calendar spreads,
+            and wheel tracking on indexes and single stocks. Real-time P&amp;L, chaos-scored
+            news, and an AI-ready API.
           </p>
           <div className="hero-ctas">
             <button className="btn btn-primary" onClick={onJoinWaitlist}>
