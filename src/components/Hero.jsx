@@ -1,5 +1,3 @@
-const DASHBOARD_URL = 'https://options.delianpetrov.com'
-
 const TICKS = [
   { sym: 'SPX', px: '7,741.59', chg: '+0.42%', up: true },
   { sym: 'VIX', px: '14.57', chg: '-3.10%', up: false },
@@ -9,7 +7,7 @@ const TICKS = [
   { sym: 'ES FUT', px: '7,748.50', chg: '+0.35%', up: true },
 ]
 
-export default function Hero() {
+export default function Hero({ onJoinWaitlist }) {
   return (
     <header className="hero" id="top">
       <div className="container hero-inner">
@@ -23,9 +21,9 @@ export default function Hero() {
             dashboard.
           </p>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href={DASHBOARD_URL} target="_blank" rel="noreferrer">
-              Request Access
-            </a>
+            <button className="btn btn-primary" onClick={onJoinWaitlist}>
+              Join the Waitlist
+            </button>
             <a className="btn btn-ghost" href="#demo">
               Watch Demo
             </a>

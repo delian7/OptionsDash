@@ -46,7 +46,7 @@ const TIERS = [
 
 const DASHBOARD_URL = 'https://options.delianpetrov.com'
 
-export default function Pricing() {
+export default function Pricing({ onJoinWaitlist }) {
   return (
     <section id="pricing">
       <div className="container">
@@ -75,14 +75,12 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
+              <button
                 className={`btn ${t.ghost ? 'btn-ghost' : 'btn-primary'}`}
-                href={DASHBOARD_URL}
-                target="_blank"
-                rel="noreferrer"
+                onClick={onJoinWaitlist}
               >
                 {t.cta}
-              </a>
+              </button>
             </div>
           ))}
         </div>

@@ -1,5 +1,3 @@
-const DASHBOARD_URL = 'https://options.delianpetrov.com'
-
 function LogoMark() {
   return (
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -11,7 +9,7 @@ function LogoMark() {
   )
 }
 
-export default function Nav() {
+export default function Nav({ onJoinWaitlist }) {
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -27,9 +25,9 @@ export default function Nav() {
           <a href="#faq">FAQ</a>
         </div>
         <div className="nav-cta">
-          <a className="btn btn-primary btn-sm" href={DASHBOARD_URL} target="_blank" rel="noreferrer">
-            Request Access
-          </a>
+          <button className="btn btn-primary btn-sm" onClick={onJoinWaitlist}>
+            Join Waitlist
+          </button>
         </div>
       </div>
     </nav>

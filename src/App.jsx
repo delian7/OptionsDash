@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Features from './components/Features.jsx'
@@ -9,8 +9,12 @@ import Pricing from './components/Pricing.jsx'
 import Testimonials from './components/Testimonials.jsx'
 import Faq from './components/Faq.jsx'
 import Footer from './components/Footer.jsx'
+import WaitlistModal from './components/WaitlistModal.jsx'
 
 export default function App() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
+  const openWaitlist = () => setWaitlistOpen(true)
+
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
     const io = new IntersectionObserver(
@@ -30,18 +34,19 @@ export default function App() {
 
   return (
     <div className="app">
-      <Nav />
+      <Nav onJoinWaitlist={openWaitlist} />
       <main>
-        <Hero />
+        <Hero onJoinWaitlist={openWaitlist} />
         <Features />
         <DemoGallery />
         <ApiShowcase />
         <HowItWorks />
-        <Pricing />
+        <Pricing onJoinWaitlist={openWaitlist} />
         <Testimonials />
         <Faq />
       </main>
       <Footer />
+      <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   )
 }
