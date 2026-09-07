@@ -17,30 +17,36 @@ const TIERS = [
     ghost: true,
   },
   {
-    name: 'Pro',
-    sub: 'For active SPX traders',
+    name: 'Dashboard',
+    sub: 'The full manual trading desk',
+    price: '$20',
+    per: '/month',
+    features: [
+      'Iron condor builder with live P&L',
+      'Short straddles & calendar spreads',
+      'Wheel tracker with Webull mirror',
+      'Market signals + entry checklist',
+      'Chaos-scored news & macro calendar',
+      'Saved strategies & scenarios',
+    ],
+    cta: 'Request Access',
+    ghost: true,
+  },
+  {
+    name: 'Dashboard + Agent',
+    sub: 'Your AI agent, plugged into the desk',
     price: '$29',
     per: '/month',
     popular: true,
     features: [
-      'Real-time Schwab data',
-      'Agent API access',
-      'Saved scenarios & strategies',
-      'Live Schwab + WeBull positions',
-      'News chaos scoring',
-      'Macro calendar with impact levels',
+      'Everything in Dashboard',
+      'MCP server access for your AI agent',
+      'Agent-built strategies & scans',
+      'Automated monitoring & alerts',
+      'API access',
     ],
     cta: 'Request Access',
     ghost: false,
-  },
-  {
-    name: 'Enterprise',
-    sub: 'For desks & teams',
-    price: 'Custom',
-    per: '',
-    features: ['Multi-account support', 'Custom integrations', 'Priority API rate limits', 'Dedicated support'],
-    cta: 'Contact Us',
-    ghost: true,
   },
 ]
 
@@ -54,7 +60,7 @@ export default function Pricing({ onJoinWaitlist }) {
           <span className="eyebrow">Pricing</span>
           <h2 className="section-title">Pick the desk that fits</h2>
           <p className="section-sub">
-            Start free, upgrade when you need real-time data and the agent API.
+            Start free. Run the desk yourself — or plug in your AI agent.
           </p>
         </div>
         <div className="pricing-grid">
@@ -77,7 +83,7 @@ export default function Pricing({ onJoinWaitlist }) {
               </ul>
               <button
                 className={`btn ${t.ghost ? 'btn-ghost' : 'btn-primary'}`}
-                onClick={onJoinWaitlist}
+                onClick={() => onJoinWaitlist(t.name)}
               >
                 {t.cta}
               </button>

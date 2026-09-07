@@ -11,7 +11,7 @@ const FEATURES = [
 
 const STEPS = ['name', 'email', 'reason', 'feature', 'done']
 
-export default function WaitlistModal({ open, onClose }) {
+export default function WaitlistModal({ open, plan, onClose }) {
   const [step, setStep] = useState(0)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -50,6 +50,7 @@ export default function WaitlistModal({ open, onClose }) {
           email: email.trim(),
           reason: reason.trim(),
           features,
+          plan: plan || null,
         }),
       })
       if (!res.ok) throw new Error('submit failed')
@@ -90,6 +91,7 @@ export default function WaitlistModal({ open, onClose }) {
               <>
                 <p className="wl-kicker">Step 1 of 4</p>
                 <h3>What's your name?</h3>
+                {plan && <p className="wl-hint">You're joining for the <strong>{plan}</strong> plan.</p>}
                 <input autoFocus className="wl-input" type="text" placeholder="Alex Rivera" value={name}
                   onChange={(e) => setName(e.target.value)} />
               </>
