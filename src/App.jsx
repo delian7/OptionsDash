@@ -12,7 +12,11 @@ import WaitlistModal from './components/WaitlistModal.jsx'
 
 export default function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false)
-  const openWaitlist = () => setWaitlistOpen(true)
+  const [waitlistPlan, setWaitlistPlan] = useState(null)
+  const openWaitlist = (plan) => {
+    setWaitlistPlan(plan || null)
+    setWaitlistOpen(true)
+  }
 
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
@@ -44,7 +48,7 @@ export default function App() {
         <Faq />
       </main>
       <Footer />
-      <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
+      <WaitlistModal open={waitlistOpen} plan={waitlistPlan} onClose={() => setWaitlistOpen(false)} />
     </div>
   )
 }

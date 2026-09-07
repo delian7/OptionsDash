@@ -19,6 +19,8 @@ export default async function handler(req, res) {
   const email = String(body?.email || '').trim().slice(0, 200)
   const reason = String(body?.reason || '').trim().slice(0, 2000)
   const features = Array.isArray(body?.features) ? body.features.map(String).slice(0, 10) : []
+  const plan = String(body?.plan || '').trim().slice(0, 60)
+  const reasonText = plan ? `[Interested in: ${plan}] ${reason}`.trim() : reason
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ ok: false, error: 'name and valid email required' })
@@ -37,7 +39,7 @@ export default async function handler(req, res) {
         properties: {
           Name: { title: [{ text: { content: name } }] },
           Email: { email },
-          Reason: { rich_text: [{ text: { content: reason } }] },
+          Reason: { rich_text: [{ text: { content: reasonText } }] },
           'Favorite features': { multi_select: features.map((n) => ({ name: n })) },
         },
       }),
