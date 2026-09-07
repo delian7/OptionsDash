@@ -6,9 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="OptionsDash — Trade SPX iron condors with precision. Real-time P&L curves, chaos-scored news, and an AI-friendly API, all in one dashboard."
+      content="OptionsDash — Trade SPX iron condors with precision. Multi-strategy options dashboard: iron condors, short straddles, calendar spreads, wheel tracking, chaos-scored news, and an AI-ready API."
     />
     <title>OptionsDash — Trade SPX Iron Condors with Precision</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What strategies does OptionsDash support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Iron condors are the specialty, with an interactive P&L visualizer, live Greeks, breakevens, and probability of profit. It also has builders for short straddles and calendar spreads with Black-Scholes pricing, plus wheel tracking for cash-secured puts and covered calls — all with saved scenario management."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it only for SPX?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — it is optimized for SPX and SPXW iron condors with real-time Schwab data, but it also tracks single-stock positions (e.g. wheel trades) synced from WeBull."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this for trading or analysis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Analysis and monitoring only — OptionsDash does not execute orders. You build, analyze, and track strategies here; orders stay with your broker."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which brokerages are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Schwab and WeBull for positions and market data. Schwab powers real-time SPX/SPXW pricing; WeBull syncs your live holdings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can AI agents use this?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — the agent API provides full dashboard access via simple HTTP calls. A single request returns SPX/VIX, positions, strategies, news, and macro events, with an LLM-friendly ?format=text option."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Section 1256?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The IRS tax treatment for broad-based index options like SPX: 60% of gains are taxed at the long-term capital gains rate and 40% at the short-term rate, regardless of holding period."
+            }
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

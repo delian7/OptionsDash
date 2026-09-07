@@ -1,5 +1,13 @@
 const FAQS = [
   {
+    q: 'What strategies does OptionsDash support?',
+    a: 'Iron condors are the specialty, with an interactive P&L visualizer, live Greeks, breakevens, and probability of profit. It also has builders for short straddles and calendar spreads with Black-Scholes pricing, plus wheel tracking for cash-secured puts and covered calls — all with saved scenario management.',
+  },
+  {
+    q: 'Is it only for SPX?',
+    a: 'No — it is optimized for SPX and SPXW iron condors with real-time Schwab data, but it also tracks single-stock positions (e.g. wheel trades) synced from WeBull.',
+  },
+  {
     q: 'Is this for trading or analysis?',
     a: 'Analysis and monitoring only — OptionsDash does not execute orders. You build, analyze, and track strategies here; orders stay with your broker.',
   },
