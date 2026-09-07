@@ -6,7 +6,6 @@ import DemoGallery from './components/DemoGallery.jsx'
 import ApiShowcase from './components/ApiShowcase.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Pricing from './components/Pricing.jsx'
-import Testimonials from './components/Testimonials.jsx'
 import Faq from './components/Faq.jsx'
 import Footer from './components/Footer.jsx'
 import WaitlistModal from './components/WaitlistModal.jsx'
@@ -42,7 +41,6 @@ export default function App() {
         <ApiShowcase />
         <HowItWorks />
         <Pricing onJoinWaitlist={openWaitlist} />
-        <Testimonials />
         <Faq />
       </main>
       <Footer />
