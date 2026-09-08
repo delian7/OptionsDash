@@ -25,9 +25,6 @@ export default function Hero({ onJoinWaitlist }) {
             <button className="btn btn-primary" onClick={onJoinWaitlist}>
               Join the Waitlist
             </button>
-            <a className="btn btn-ghost" href="#demo">
-              Watch Demo
-            </a>
           </div>
           <div className="hero-proof">
             <div>
