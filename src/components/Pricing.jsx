@@ -1,3 +1,5 @@
+import { track } from '../lib/analytics.js'
+
 function Check() {
   return (
     <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -83,7 +85,10 @@ export default function Pricing({ onJoinWaitlist }) {
               </ul>
               <button
                 className={`btn ${t.ghost ? 'btn-ghost' : 'btn-primary'}`}
-                onClick={() => onJoinWaitlist(t.name)}
+                onClick={() => {
+                  track('plan_cta_clicked', { plan: t.name })
+                  onJoinWaitlist(t.name, 'pricing')
+                }}
               >
                 {t.cta}
               </button>

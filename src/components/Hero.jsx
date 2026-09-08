@@ -1,3 +1,5 @@
+import { track } from '../lib/analytics.js'
+
 const TICKS = [
   { sym: 'SPX', px: '7,741.59', chg: '+0.42%', up: true },
   { sym: 'VIX', px: '14.57', chg: '-3.10%', up: false },
@@ -25,8 +27,12 @@ export default function Hero({ onJoinWaitlist }) {
             <button className="btn btn-primary" onClick={onJoinWaitlist}>
               Join the Waitlist
             </button>
-            <a className="btn btn-ghost" href="#demo">
-              Watch Demo
+            <a
+              className="btn btn-ghost"
+              href="#live-demo"
+              onClick={() => track('demo_cta_clicked', { source: 'hero' })}
+            >
+              Live Demo
             </a>
           </div>
           <div className="hero-proof">

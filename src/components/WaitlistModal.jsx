@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { track } from '../lib/analytics.js'
 
 const FEATURES = [
   'Iron Condor P&L visualizer',
@@ -55,6 +56,7 @@ export default function WaitlistModal({ open, plan, onClose }) {
       })
       if (!res.ok) throw new Error('submit failed')
       setStep(4)
+      track('waitlist_completed', { plan: plan || null, features, feature_count: features.length })
     } catch {
       setError('Something went wrong — please try again in a moment.')
     } finally {
@@ -69,6 +71,7 @@ export default function WaitlistModal({ open, plan, onClose }) {
     if (s === 'email' && !emailValid) return setError('Please enter a valid email address.')
     if (s === 'reason' && !reason.trim()) return setError('One line is plenty — what drew you in?')
     if (s === 'feature') return submit()
+    track('waitlist_step_completed', { step: s, plan: plan || null })
     setStep(step + 1)
   }
 
