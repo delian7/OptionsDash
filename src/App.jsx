@@ -5,6 +5,7 @@ import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Features from './components/Features.jsx'
 import DemoGallery from './components/DemoGallery.jsx'
+import DemoCta from './components/DemoCta.jsx'
 import ApiShowcase from './components/ApiShowcase.jsx'
 import HowItWorks from './components/HowItWorks.jsx'
 import Pricing from './components/Pricing.jsx'
@@ -49,6 +50,7 @@ export default function App() {
         <Hero onJoinWaitlist={() => openWaitlist(null, 'hero')} />
         <Features />
         <DemoGallery />
+        <DemoCta onJoinWaitlist={openWaitlist} />
         <ApiShowcase />
         <HowItWorks />
         <Pricing onJoinWaitlist={openWaitlist} />
