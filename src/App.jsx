@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import { initAnalytics, track } from './lib/analytics.js'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Features from './components/Features.jsx'
@@ -14,10 +15,15 @@ import WaitlistModal from './components/WaitlistModal.jsx'
 export default function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false)
   const [waitlistPlan, setWaitlistPlan] = useState(null)
-  const openWaitlist = (plan) => {
+  const openWaitlist = (plan, source) => {
     setWaitlistPlan(plan || null)
     setWaitlistOpen(true)
+    track('waitlist_opened', { plan: plan || null, source: source || 'pricing' })
   }
+
+  useEffect(() => {
+    initAnalytics()
+  }, [])
 
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
@@ -38,9 +44,9 @@ export default function App() {
 
   return (
     <div className="app">
-      <Nav onJoinWaitlist={openWaitlist} />
+      <Nav onJoinWaitlist={() => openWaitlist(null, 'nav')} />
       <main>
-        <Hero onJoinWaitlist={openWaitlist} />
+        <Hero onJoinWaitlist={() => openWaitlist(null, 'hero')} />
         <Features />
         <DemoGallery />
         <ApiShowcase />
