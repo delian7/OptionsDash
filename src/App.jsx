@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Features from './components/Features.jsx'
@@ -49,6 +50,7 @@ export default function App() {
       </main>
       <Footer />
       <WaitlistModal open={waitlistOpen} plan={waitlistPlan} onClose={() => setWaitlistOpen(false)} />
+      <Analytics />
     </div>
   )
 }
