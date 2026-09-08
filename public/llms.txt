@@ -1,0 +1,44 @@
+# OptionsDash
+
+> OptionsDash is an options trading dashboard optimized for SPX iron condors —
+> real-time P&L, chaos-scored news, wheel tracking, and an AI-ready API.
+
+## What it is
+
+- Analysis and monitoring dashboard for options traders. It does **not** execute
+  orders — orders stay with your broker.
+- Specialty: **SPX / SPXW iron condors** with an interactive P&L visualizer,
+  live Greeks, breakevens, and probability of profit.
+- Also supports: short straddles, calendar spreads (Black-Scholes pricing),
+  and wheel tracking (cash-secured puts, covered calls) on indexes and
+  single stocks.
+- Market data: Schwab (real-time SPX/SPXW pricing) and WeBull (live holdings sync).
+- Chaos-scored news: headlines ranked by expected market impact, with sentiment badges.
+- Agent API: full dashboard access over HTTP; a single request returns
+  SPX/VIX, positions, strategies, news, and macro events, with an
+  LLM-friendly `?format=text` option.
+
+## Pricing
+
+- Free plan (top of funnel)
+- Dashboard — $20/month: manual trading desk (builders, wheel tracker,
+  signals/checklist, chaos news, saved strategies/scenarios)
+- Dashboard + Agent — $29/month: everything in Dashboard plus MCP server /
+  API access and agent-oriented workflows
+
+## FAQ
+
+- **Is it only for SPX?** No — optimized for SPX iron condors, but it tracks
+  single-stock positions (e.g. wheel trades) synced from WeBull.
+- **Is this for trading or analysis?** Analysis and monitoring only.
+- **Which brokerages are supported?** Schwab and WeBull.
+- **Can AI agents use this?** Yes — the agent API exposes the full dashboard
+  via simple HTTP calls.
+- **What is Section 1256?** IRS tax treatment for broad-based index options
+  like SPX: 60% of gains taxed at the long-term rate, 40% at short-term,
+  regardless of holding period.
+
+## Links
+
+- Site: https://optionsdash.delianpetrov.com/
+- Live demo: coming soon for waitlist members
